@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mark Express Down</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="container-fluid">
+  <div class="row">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">MarkExpressDown</a>
+    </div>
+      <form class="navbar-form navbar-right" action="/new" method="post">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter Name" name="file">
+        </div>
+        <button type="submit" class="btn btn-default btn-success">New File</button>
+        <button type="submit" form="body" id="Download" class="btn btn-primary">Download</button>
+      </form>
+  </div>
+</nav>
+</div>
+  <section class="row">
+    <form action="" method="post" id="body" class="col-md-6 full-height" onsubmit="mydown()">
+    <textarea name="Contents" class="full-height" id="pad">Write your text here...</textarea>
+  </form>
+    <div class="col-md-6 full-height" id="markdown"></div>
+  </section>
+
+  <script src="/js/showdown.min.js"></script>
+  <script src="/channel/bcsocket.js"></script>
+  <script src="/share/share.uncompressed.js"></script>
+  <script src="/share/textarea.js"></script>
+  <script src="/js/script.js"></script>
+
+</body>
+</html>
