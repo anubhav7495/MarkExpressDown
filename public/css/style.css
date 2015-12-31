@@ -2,6 +2,9 @@ html, body, section, .full-height {
   height: 100%;
 }
 
+h1, h2 {
+  border-bottom: 1px solid rgba(221, 221, 221, 0.2);
+}
 #body {
   background-color: #202d2d;
 }

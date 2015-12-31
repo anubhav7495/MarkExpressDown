@@ -1,5 +1,6 @@
 window.onload = function() {
   var converter = new showdown.Converter();
+  converter.setOption('simplifiedAutoLink', 'true');
   var pad = document.getElementById('pad');
   var markdownarea = document.getElementById('markdown');
   var download = document.getElementById('Download');
