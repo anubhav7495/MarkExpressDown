@@ -31,10 +31,11 @@ app.post('/(:id)/download', function(req, res) {
   res.download(path);
 });
 
-require('redis');
+var redisClient;
+redisClient = require('redis').createClient(process.env.REDIS_URL);
 
 var options = {
-  db : { type: 'redis' },
+  db : { type: 'redis', client: redisClient}
 };
 
 sharejs.server.attach(app, options);
