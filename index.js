@@ -32,10 +32,17 @@ app.post('/(:id)/download', function(req, res) {
 });
 
 var redisClient;
-redisClient = require('redis').createClient(process.env.REDIS_URL);
+console.log(process.env.REDISTOGO_URL);
+if (process.env.REDISTOGO_URL) {
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  redisClient = require("redis").createClient(rtg.port, rtg.hostname);
+  redisClient.auth(rtg.auth.split(":")[1]);
+} else {
+  redisClient = require("redis").createClient();
+}
 
 var options = {
-  db : { type: 'redis', client: redisClient}
+  db: {type: 'redis', client: redisClient}
 };
 
 sharejs.server.attach(app, options);
