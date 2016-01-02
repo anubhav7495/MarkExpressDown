@@ -20,6 +20,20 @@ window.onload = function() {
 
       e.preventDefault();
     }
+    if(e.keyCode === 13) {
+
+      e.preventDefault();
+
+      var target = e.target;
+      var start = target.value.lastIndexOf('\n') + 1;
+      var end = this.selectionEnd;
+
+      var reg = /^\s*/gi;
+      var x = target.value.substring(start, end);
+      var i = x.match(reg)[0];
+
+      target.value = target.value + '\n' + i;
+    }
   });
 
   var previousMarkdownValue;
